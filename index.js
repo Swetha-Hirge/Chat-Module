@@ -46,6 +46,11 @@ app.get('/update-chat-history', async (req, res) => {
   res.send(response);
 });
 
+app.delete('/delete-message/:messageId', async (req, res) => {
+    const messageId = req.params.messageId;
+    const response = await chat.deleteMessage(messageId);
+    res.send(response);
+  });
 
 app.listen(5000, () => {
   console.log('Server listening on port 5000');

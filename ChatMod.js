@@ -70,6 +70,12 @@ const updateChatHistory = async (roomId) => {
   return 'Chat history updated'
 };
 
+// Delete a specific message
+const deleteMessage = async (messageId) => {
+    await Chat.deleteOne({_id: messageId});
+    return 'Message deleted'
+  };
+
 
 
 module.exports = {
@@ -78,5 +84,6 @@ module.exports = {
   oneToOneChat,
   sendMessage,
   receiveMessage,
-  updateChatHistory
+  updateChatHistory,
+  deleteMessage
 };
